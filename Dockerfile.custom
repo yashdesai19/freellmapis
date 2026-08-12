@@ -21,6 +21,9 @@ RUN npm install --prefix client vite@latest && \
     npm run build -w client -- --force && \
     npm run build -w server
 
+# Set production environment
+ENV NODE_ENV=production
+
 # Expose the port
 EXPOSE 3001
 
