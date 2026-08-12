@@ -102,11 +102,12 @@ export function setCompressionConfig(update: z.infer<typeof compressionUpdateSch
   const current = getCompressionConfig();
   const engines = { ...current.engines };
   for (const [id, patch] of Object.entries(parsed.engines ?? {})) {
+    const enginePatch = patch as Partial<CompressionEngineConfig>;
     engines[id] = {
       ...(engines[id] ?? { enabled: true }),
-      ...patch,
-      enabled: typeof patch.enabled === 'boolean'
-        ? patch.enabled
+      ...enginePatch,
+      enabled: typeof enginePatch.enabled === 'boolean'
+        ? enginePatch.enabled
         : (engines[id]?.enabled ?? true),
     };
   }
