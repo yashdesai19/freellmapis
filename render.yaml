@@ -1,0 +1,17 @@
+services:
+  - type: web
+    name: freellmapi
+    runtime: node
+    plan: free  # or "starter" for better performance
+    region: oregon  # choose the closest region to you
+    buildCommand: npm install && npm run build
+    startCommand: node server/dist/index.js
+    envVars:
+      - key: NODE_VERSION
+        value: 20.18.0
+      - key: PORT
+        value: 3001
+      - key: ENCRYPTION_KEY
+        sync: false  # You'll set this manually in Render's dashboard
+      - key: FREEAPI_DB_PATH
+        value: /var/lib/render/freellmapi.db
