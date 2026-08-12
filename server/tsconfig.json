@@ -2,8 +2,8 @@
   "compilerOptions": {
     "target": "ES2022",
     "module": "ES2022",
-    "moduleResolution": "bundler",
-        "lib": ["ES2022", "DOM"],
+    "moduleResolution": "node16",
+    "lib": ["ES2022"],
     "types": ["node"],
     "outDir": "./dist",
     "rootDir": "./src",
@@ -16,6 +16,6 @@
     "declarationMap": true,
     "sourceMap": true
   },
-  "include": ["src/**/*"],
+  "include": ["src/**/*", "../shared/**/*"],
   "exclude": ["node_modules", "dist", "src/__tests__"]
 }
