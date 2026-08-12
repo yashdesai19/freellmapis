@@ -4,7 +4,7 @@ services:
     runtime: node
     plan: free  # or "starter" for better performance
     region: oregon  # choose the closest region to you
-    buildCommand: npm install && npm run build -w client -- --force && npm run build -w server
+    buildCommand: npm install && npm install --prefix client vite@latest && npm run build -w client -- --force && npm run build -w server
     startCommand: node server/dist/index.js
     envVars:
       - key: NODE_VERSION
